@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <my-element></my-element>
+</div>
+<script>
+    // const ele = document.getElementById('app');
+	  // const shadow = ele.attachShadow({mode: 'open'});
+		// const p = document.createElement('p');
+		// p.textContent = 'Hello, World!';
+		// p.style.color = 'red';
+		// shadow.appendChild(p);
+		class MyElement extends HTMLElement {
+      constructor() {
+        super();
+        const shadow = this.attachShadow({mode: 'open'});
+        const p = document.createElement('p');
+        p.textContent = 'Hello, World!';
+        p.style.color = 'red';
+        shadow.appendChild(p);
+      }
+    }
+		customElements.define('my-element', MyElement);
+</script>
+</body>
+</html>

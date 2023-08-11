@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>bar</title>
+</head>
+<body>
+<h1>bar</h1>
+<script>
+  window.onpopstate = function(e) {
+    alert('bar');
+  }
+
+  let stateObj = {
+    bar: "this is bar",
+  };
+
+  // history.pushState(stateObj, "page 2", "bar.html");
+</script>
+</body>
+</html>

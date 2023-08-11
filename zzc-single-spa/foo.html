@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>foo</title>
+</head>
+<body>
+<h1>foo</h1>
+<script>
+	window.history.pushState = patchedUpdateState(window.history.pushState)
+	window.history.replaceState = patchedUpdateState(window.history.replaceState)
+	function patchedUpdateState (updateState) {
+		return function (...args) {
+			console.log('state')
+			const urlBefore = window.location.href
+			const result = Reflect.apply(updateState, this, args)
+			console.log(result)
+			const urlAfter = window.location.href
+      console.log(urlBefore, urlAfter, result)
+			return result
+		}
+	}
+	function testa () {
+		console.log('te')
+	}
+
+	let stateObj = {
+		foo: "bar",
+	};
+
+	history.pushState(stateObj, "page 2", "#bar");
+	window.onhashchange = function () {
+    console.log('hash')
+  }
+</script>
+</body>
+</html>
