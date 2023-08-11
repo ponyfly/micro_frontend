@@ -1,0 +1,8 @@
+{
+  "name": "micro_frontend",
+  "version": "1.0.0",
+  "dependencies": {
+  },
+  "private": true,
+  "workspaces": ["child-vue1", "child-vue2", "parent-vue", "single-spa-vue", "single-spa", "zzc-single-spa"]
+}
